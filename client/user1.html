@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User 1 Chat</title>
+</head>
+<body>
+  <h3>User 1</h3>
+
+  <ul id="chat"></ul>
+
+  <input id="msg" placeholder="Type message" />
+  <button onclick="sendMessage()">Send</button>
+
+  <script src="http://localhost:5001/socket.io/socket.io.js"></script>
+<script>
+  const chat = document.getElementById("chat");
+
+  const CURRENT_USER_ID = "66a9f1a1c1a1111111111111";
+
+  const socket = io("http://localhost:5001", {
+    auth: {
+      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmE5ZjFhMWMxYTExMTExMTExMTExMTEiLCJpYXQiOjE3NjY2MjQ4NTksImV4cCI6MTc2NzIyOTY1OX0.t8MEaa4urfDgyxERGc8US6NRzarlymtRH-nTiZ7saYo",
+    }
+  });
+
+  socket.on("receive_message", (data) => {
+    const li = document.createElement("li");
+
+    if (data.senderId === CURRENT_USER_ID) {
+      li.textContent = "Me: " + data.message;
+    } else {
+      li.textContent = "User 2: " + data.message;
+    }
+
+    chat.appendChild(li);
+  });
+
+  function sendMessage() {
+    socket.emit("send_message", {
+      receiverId: "66a9f1a1c1a2222222222222",
+      message: document.getElementById("msg").value
+    });
+
+    document.getElementById("msg").value = "";
+  }
+</script>
+
+</body>
+</html>
