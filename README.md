@@ -137,7 +137,7 @@ Server running on port 5001
 
 ## Sample Users
 
-A `users.sample.json` file is included with dummy users for testing.
+A `users.json` file is included with dummy users for testing.
 
 You can import this file into MongoDB Compass to quickly create users for testing.
 
@@ -232,5 +232,3 @@ This ensures reliability and no message loss.
 This project demonstrates a complete and clean implementation of a real-time one-to-one chat backend using Socket.IO.
 It focuses on correctness, clarity, and real-world backend practices while keeping the frontend intentionally simple for testing purposes.
 
-
-Just tell me.
