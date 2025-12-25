@@ -65,7 +65,7 @@ chat-backend/
 │   ├── user1.html
 │   └── user2.html
 │
-├── users.sample.json
+├── users.json
 ├── .env.example
 ├── package.json
 └── README.md
