@@ -16,6 +16,8 @@ The goal of this project is to demonstrate:
 A **minimal HTML frontend** is included **only for testing and demonstration purposes**, not as a production frontend.
 
 ---
+ Deployed on render: https://chat-backend-6qc8.onrender.com
+---
 
 ## Features
 
